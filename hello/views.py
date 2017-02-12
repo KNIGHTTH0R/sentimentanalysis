@@ -10,6 +10,9 @@ def index(request):
 	
 def abstract(request):
     return render(request, 'abstract.html')
+	
+def random(request):
+    return render(request,'random.html')
 
 
 def db(request):
