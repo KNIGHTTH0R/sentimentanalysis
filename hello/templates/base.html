@@ -7,9 +7,11 @@
   <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <style type="text/css">
     .jumbotron {
-        background: #532f8c;
+        background-image: url('{{ STATIC_URL }}static/sentimentanalysiss.png');
+        background-repeat:no-repeat;
+        background-size: 100%;
         color: white;
-        padding-bottom: 80px
+        
     }
     .jumbotron .btn-primary {
         background: #845ac7;
@@ -19,25 +21,35 @@
         background: #7646c1
     }
     .jumbotron p {
-        color: #d9ccee;
+        color: black;
+        font-family: consolas;
+        font-size: 2vw;
         max-width: 75%;
         margin: 1em auto 2em
     }
+
     .navbar+.jumbotron {
         margin-top: -20px
     }
     .jumbotron .lang-logo {
         display: block;
-        background: #b01302;
-        border-radius: 50%;
         overflow: hidden;
-        width: 100px;
-        height: 100px;
+        background-color: transparent;
+        background-size: 100%
         margin: auto;
-        border: 2px solid white
     }
     .jumbotron .lang-logo img {
         max-width: 100%
+    }
+    input[id=search_box] {
+        border-radius: 2%
+        max-width:100px;
+        border-color: black;
+        background-color: white;
+        background-image: url('searchicon.png');
+        background-position: 10px 10px; 
+        background-repeat: no-repeat;
+        padding-left: 40px;
     }
 
 
