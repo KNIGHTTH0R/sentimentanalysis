@@ -7,6 +7,9 @@ from .models import Greeting
 def index(request):
     #return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
+	
+def abstract(request):
+    return render(request, 'abstract.html')
 
 
 def db(request):
