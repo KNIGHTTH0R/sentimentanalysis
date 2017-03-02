@@ -8,7 +8,8 @@ def SearchProduct(product_name):
 	search_string = "http://www.amazon.in/s/?url=search-alias=aps&field-keywords="+product_name+"&Go=Go"
 
 	#print search_string
-
+	# _____ create header to fool the website ________
+	
 	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
 	page = requests.get(search_string,headers=headers)
 	data = html.fromstring(page.content)
