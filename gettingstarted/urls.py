@@ -15,4 +15,5 @@ urlpatterns = [
 	url(r'^random', hello.views.random, name='random'),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^search_product', hello.views.search_product)
 ]

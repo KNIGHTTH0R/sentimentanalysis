@@ -7,21 +7,21 @@
   <link rel="icon" href="{{ STATIC_URL }}static/favicon.png" type="image/png"/>
   <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <style type="text/css">
-    .jumbotron {
+    .mainblock {
         background-image: url('{{ STATIC_URL }}static/sentimentanalysis.png');
         background-repeat:no-repeat;
         background-size: 100%;
         color: white;
         
     }
-    .jumbotron .btn-primary {
+    .mainblock .btn-primary {
         background: #845ac7;
         border-color: #845ac7
     }
-    .jumbotron .btn-primary:hover {
+    .mainblock .btn-primary:hover {
         background: #7646c1
     }
-    .jumbotron p {
+    .mainblock p {
         color: black;
         font-family: consolas;
         font-size: 2vw;
@@ -29,19 +29,21 @@
         margin: 1em auto 2em
     }
 
-    .navbar+.jumbotron {
+    .navbar+.mainblock {
         margin-top: -20px
     }
-    .jumbotron .lang-logo {
+    .mainblock .lang-logo {
         display: block;
         overflow: hidden;
         background-color: transparent;
         background-size: 100%
         margin: auto;
     }
-    .jumbotron .lang-logo img {
+    .mainblock .lang-logo img {
         max-width: 100%
     }
+
+
     input[id=search_box] {
         border-radius: 2%
         max-width:100px;

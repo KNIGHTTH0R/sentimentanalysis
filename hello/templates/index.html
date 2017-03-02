@@ -3,27 +3,23 @@
 
 {% block content %}
 
-
-<div class="jumbotron text-center" >
+<div class="mainblock text-center" >
   <div class="container">
     <a href="/" class="lang-logo">
       <img src="{% static 'logo_sas.png'%}" style="">
     </a>
     
     <p style=""><strong>enter a product name and we will tell you what others think about it ! :) </strong></p>
-    <form class="" action="search_product" method="post">
-      <input id = "search_box" type="text" class="input_btn"></input>
-      <button type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-search"></span> Search 
-      </button>
+    <form class="" action="search_product" method="POST">{% csrf_token %}
+      <input id = "search_box" name="product_name" type="text" class="input_btn" ></input>
+      <input type="submit" class="btn btn-default btn-sm" value="Search">
     </form>
-    
+    {{name}}
+</form>
   </div>
 </div>
 <div class="container">
-  <div class="alert alert-info text-center" role="alert">
-    To follow me on instagram go to <a href="random.html" class="alert-link">@Aditya</a>.
-  </div>
+  
   <hr>
   <div class="row">
     <div class="col-md-6">
@@ -35,13 +31,14 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-user"></span> Follow us on Social Media</h3>
       <ul>
-        <li> <a href="https://www.instagram.com/stupidnigger">Sangeeth</a></li>
+        <li> <a href="https://www.twitter.com/" target="_blank">Sangeeth</a></li>
+        <li> <a href="https://www.twitter.com/" target="_blank">Aditya</a></li>
       </ul>
         
     </div>
   </div> <!-- row -->
    <div class="alert alert-info text-center" role="alert">
-    Developed by Aditya Shekhawat & Sangeeth Koratten(2017)
+    Developed by Aditya Shekhawat & Sangeeth Koratten <sup>&copy;</sup>
   </div>
 </div>
 {% endblock %}
