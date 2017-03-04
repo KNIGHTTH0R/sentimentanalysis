@@ -3,26 +3,29 @@
 
 {% block content %}
 <div class="container">
-The products available are:
 {% with item_no=1 %}
-<div class="table-responsive">          
-  <table class="table" width="100%">
+<div class="">          
+  <table class="table table-responsive" width="100%" >
     <thead>
-      <tr>
-        <th >Item No.</th>
-        <th style="text-align: center">Preview</th>
-        <th >Prouct Name</th>
+      <tr class="tableheader">
+        <th style="vertical-align:middle;text-align: center;"><h5>Item No.</h4></th>
+        <th style="vertical-align:middle;text-align: center;"><hPreview</th>
+        <th style="vertical-align:middle;text-align: center;">Prouct Name</th>
+        <th style="vertical-align:middle;text-align: center;">Price</th>
     </tr>
     </thead>
     
     <tbody>
-	    {%for item,img in product_data %}
+    
+	    {%for item,img,price in product_data %}
           <tr class="tabledata" >
             <td style="vertical-align:middle">{{forloop.counter}}</td>
-            <td style="vertical-align:middle;text-align: center"><img src={{ img }} alt="error"></td>
-  	        <td style="vertical-align:middle">{{item}}</td>
+            <td style="vertical-align:middle;text-align: center;"><img src={{ img }} alt="error" width="100  vw"></td>
+  	        <td style="vertical-align:middle;font-size: 1vw;text-align: center;">{{item}}</td>
+            <th style="vertical-align:middle;font-size: 1vw;text-align: center;">&#8377;{{price}}</td>
   	      </tr>
 	    {% endfor %}
+      
     </tbody>
   </table>
   </div>

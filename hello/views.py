@@ -48,10 +48,10 @@ def search_product(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         product = request.POST.get('product_name')
-        prod_names,prod_images = psr.SearchProduct(product)
+        prod_names,prod_images,prod_price = psr.SearchProduct(product)
         #return HttpResponse(prod_names)
-        sample = ['lol','ertgf','fghytr','ghgfh','asd','asd']
-        product_data = zip(prod_names,prod_images)
+        #sample = ['lol','ertgf','fghytr','ghgfh','asd','asd']
+        product_data = zip(prod_names,prod_images,prod_price)
 
         #return render_to_response('searchresults.html', {'prod_names':prod_names,'prod_images':prod_images})
         return render_to_response('searchresults.html', {'product_data':product_data})

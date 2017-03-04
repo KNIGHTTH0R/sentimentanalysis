@@ -45,18 +45,20 @@ def SearchProduct(product_name):
 
 
 	names = data.xpath('//h2[@class="a-size-base a-color-null s-inline  s-access-title  color-variation-title-replacement a-text-normal"]/text()')
-	product_name_list = names[:10]
-	string = '//a[@class="a-link-normal s-access-detail-page  a-text-normal"]/h2/text()'
-	product_name = data.xpath(string)
-	product_name_list = product_name[:10]
+	product_name_list = names[:20]
+	product_name = data.xpath('//a[@class="a-link-normal s-access-detail-page  a-text-normal"]/h2/text()')
+	product_name_list = product_name[:20]
 	image_link = data.xpath('//img[@class="s-access-image cfMarker"]/@src')
-	product_image_link = image_link[:10]
+	product_image_link = image_link[:20]
+	price_value = data.xpath('//span[@class="a-size-base a-color-price s-price a-text-bold"]/text()') 
+	price_value_list = price_value[:20] 
+
 
 
 	product = data.find("a")
 	string = 'a[@class="a-link-normal s-access-detail-page  a-text-normal"]/title'
 	article_list = data.findall(string)
-	return product_name_list,product_image_link
+	return product_name_list,product_image_link,price_value_list
 	#print article_list
 '''
 	for i in range(10):
