@@ -6,7 +6,7 @@
 The products available are:
 {% with item_no=1 %}
 <div class="table-responsive">          
-  <table class="table" >
+  <table class="table" width="100%">
     <thead>
       <tr>
         <th >Item No.</th>
@@ -17,11 +17,11 @@ The products available are:
     
     <tbody>
 	    {%for item,img in product_data %}
-	      <tr >
-          <td style="vertical-align:middle">{{forloop.counter}}</td>
-          <td style="vertical-align:middle;text-align: center"><img src={{ img }} alt="error"></td>
-	        <td style="vertical-align:middle">{{item}}</td>
-	      </tr>
+          <tr class="tabledata" >
+            <td style="vertical-align:middle">{{forloop.counter}}</td>
+            <td style="vertical-align:middle;text-align: center"><img src={{ img }} alt="error"></td>
+  	        <td style="vertical-align:middle">{{item}}</td>
+  	      </tr>
 	    {% endfor %}
     </tbody>
   </table>

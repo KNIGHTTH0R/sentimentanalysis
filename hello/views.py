@@ -21,6 +21,14 @@ def index(request):
 	
 def abstract(request):
     return render(request, 'abstract.html')
+
+def sorry(request):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'sorry.html')
+
+def underdevelopment(request):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'underdevelopment.html')
 	
 
 def searchresults(request):

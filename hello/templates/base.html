@@ -73,8 +73,9 @@ Hey you !! Whatcha lookin' at ?
         margin-right: 0.5em;
         }
 
-    tr {
-        vertical-align: center;}
+    tr.tabledata:hover {
+          background-color: lightblue;
+        }
 
   </style>
 </head>
@@ -91,8 +92,8 @@ Hey you !! Whatcha lookin' at ?
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-info-sign"></span> Documentation <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="scope.doc" download>Scope of Project</a></li>
-            <li><a href="literaturesurvey.doc" download>Literaturesurvey</a></li>
+            <li><a href="{{ STATIC_URL }}static/scope.docx" download>Scope of Project</a></li>
+            <li><a href="{{ STATIC_URL }}static/literaturesurvey.docx" download>Literaturesurvey</a></li>
             
           </ul>
       </li>
