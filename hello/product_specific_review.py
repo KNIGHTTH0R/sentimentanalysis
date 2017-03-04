@@ -9,7 +9,7 @@ def SearchProduct(product_name):
 
 	#print search_string
 	# _____ create header to fool the website ________
-	
+
 	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
 	page = requests.get(search_string,headers=headers)
 	data = html.fromstring(page.content)
@@ -45,11 +45,11 @@ def SearchProduct(product_name):
 
 
 	names = data.xpath('//h2[@class="a-size-base a-color-null s-inline  s-access-title  color-variation-title-replacement a-text-normal"]/text()')
-	product_name_list = names[:10]
+	product_name_list = names[:20]
 	string = '//a[@class="a-link-normal s-access-detail-page  a-text-normal"]/h2/text()'
 	product_name = data.xpath(string)
 	#print product_name
-	product_name_list = product_name[:10]
+	product_name_list = product_name[:20]
 
 
 	product = data.find("a")

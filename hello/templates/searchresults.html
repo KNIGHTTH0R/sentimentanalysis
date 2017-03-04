@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+The products available are:
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Prouct Name</th>
+      </tr>
+    </thead>
+    <tbody>
+	    {%for item in prodnames%}
+	      <tr>
+	        <td>{{item}}</td>
+	      </tr>
+	    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+{% endblock %}

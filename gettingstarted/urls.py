@@ -12,7 +12,7 @@ import hello.views
 urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
 	url(r'^abstract', hello.views.abstract, name='abstract'),
-	url(r'^random', hello.views.random, name='random'),
+	url(r'^searchresults', hello.views.searchresults, name='searchresults'),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^search_product', hello.views.search_product)

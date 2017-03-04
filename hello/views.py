@@ -22,8 +22,9 @@ def index(request):
 def abstract(request):
     return render(request, 'abstract.html')
 	
-def random(request):
-    return render(request,'random.html')
+
+def searchresults(request):
+    return render(request, 'searchresults.html')
 
 def db(request):
 
@@ -42,7 +43,7 @@ def search_product(request):
         prod_names = psr.SearchProduct(product)
         #return HttpResponse(prod_names)
         sample = ['lol','ertgf','fghytr','ghgfh','asd','asd']
-        return render_to_response('random.html', {'prodnames':prod_names})
+        return render_to_response('searchresults.html', {'prodnames':prod_names})
         #return HttpResponse(newstring)
         # check whether it's valid:
         '''
@@ -55,11 +56,9 @@ def search_product(request):
         else:
             return render(request, 'random.html', {'name': form.cleaned_data})
         '''
-
     # if a GET (or any other method) we'll create a blank form
     else:
         form = NameForm()
-
-        return render(request, 'random.html', {'form': form})
+        return render(request, 'sorry.html', {'form': form})
 
 
