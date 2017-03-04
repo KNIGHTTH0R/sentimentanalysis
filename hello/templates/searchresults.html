@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container">
 {% with item_no=1 %}
-<div class="">          
+<div class="table-responsive">          
   <table class="table table-responsive" width="100%" >
     <thead>
       <tr class="tableheader">
@@ -21,8 +21,8 @@
           <tr class="tabledata" >
             <td style="vertical-align:middle">{{forloop.counter}}</td>
             <td style="vertical-align:middle;text-align: center;"><img src={{ img }} alt="error" width="100  vw"></td>
-  	        <td style="vertical-align:middle;font-size: 1vw;text-align: center;">{{item}}</td>
-            <th style="vertical-align:middle;font-size: 1vw;text-align: center;">&#8377;{{price}}</td>
+  	        <td style="vertical-align:middle;font-size: 1.2em;text-align: center;">{{item}}</td>
+            <th style="vertical-align:middle;font-size: 1.2em;text-align: center;">&#8377;{{price}}</td>
   	      </tr>
 	    {% endfor %}
       
