@@ -59,7 +59,22 @@ Hey you !! Whatcha lookin' at ?
         padding-left: 40px;
     }
 
+    .class {
+    counter-reset: rowNumber;
+    }
 
+    .class tr {
+        counter-increment: rowNumber;
+        }
+
+    .class tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+        }
+
+    tr {
+        vertical-align: center;}
 
   </style>
 </head>

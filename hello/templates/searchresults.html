@@ -4,21 +4,28 @@
 {% block content %}
 <div class="container">
 The products available are:
+{% with item_no=1 %}
 <div class="table-responsive">          
-  <table class="table">
+  <table class="table" >
     <thead>
       <tr>
-        <th>Prouct Name</th>
-      </tr>
+        <th >Item No.</th>
+        <th style="text-align: center">Preview</th>
+        <th >Prouct Name</th>
+    </tr>
     </thead>
+    
     <tbody>
-	    {%for item in prodnames%}
-	      <tr>
-	        <td>{{item}}</td>
+	    {%for item,img in product_data %}
+	      <tr >
+          <td style="vertical-align:middle">{{forloop.counter}}</td>
+          <td style="vertical-align:middle;text-align: center"><img src={{ img }} alt="error"></td>
+	        <td style="vertical-align:middle">{{item}}</td>
 	      </tr>
 	    {% endfor %}
     </tbody>
   </table>
   </div>
+  {% endwith %}
 </div>
 {% endblock %}

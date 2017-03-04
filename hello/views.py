@@ -40,19 +40,18 @@ def search_product(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         product = request.POST.get('product_name')
-        prod_names = psr.SearchProduct(product)
+        prod_names,prod_images = psr.SearchProduct(product)
         #return HttpResponse(prod_names)
         sample = ['lol','ertgf','fghytr','ghgfh','asd','asd']
-        return render_to_response('searchresults.html', {'prodnames':prod_names})
+        product_data = zip(prod_names,prod_images)
+
+        #return render_to_response('searchresults.html', {'prod_names':prod_names,'prod_images':prod_images})
+        return render_to_response('searchresults.html', {'product_data':product_data})
         #return HttpResponse(newstring)
         # check whether it's valid:
         '''
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponse("self.cleaned_data")
-            return HttpResponseRedirect('/thanks/')
         else:
             return render(request, 'random.html', {'name': form.cleaned_data})
         '''
