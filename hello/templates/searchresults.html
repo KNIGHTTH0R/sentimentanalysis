@@ -8,10 +8,11 @@
   <table class="table table-responsive" >
     <thead>
       <tr class="tableheader">
-        <th style="vertical-align:middle;text-align: center;"><h5>Item No.</h4></th>
-        <th style="vertical-align:middle;text-align: center;"><hPreview</th>
+        <th style="vertical-align:middle;text-align: center;">Item No.</th>
+        <th style="vertical-align:middle;text-align: center;">Preview</th>
         <th style="vertical-align:middle;text-align: center;">Prouct Name</th>
         <th style="vertical-align:middle;text-align: center;">Price</th>
+        <th hidden="hidden">LOLOL</th>
     </tr>
     </thead>
     
@@ -22,7 +23,8 @@
             <td style="vertical-align:middle;">{{forloop.counter}}</td>
             <td style="vertical-align:middle;text-align: center;"><img src={{ img }} alt="error" width="100vw"></td>
   	        <td style="vertical-align:middle;font-size: 1.2em;text-align: center;">{{item}}</td>
-            <th style="vertical-align:middle;font-size: 1.2em;text-align: center;">&#8377;{{price}}</td>
+            <td style="vertical-align:middle;font-size: 1.2em;text-align: center;">&#8377;{{price}}</td>
+            <td hidden="hidden" class="product_asin">lol</td>
   	      </tr>
 	    {% endfor %}
       

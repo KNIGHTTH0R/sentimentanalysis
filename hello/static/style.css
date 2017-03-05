@@ -1,0 +1,90 @@
+.mainblock {
+        vertical-align: center;
+        background-image: url('{{ STATIC_URL }}sentimentanaly.png');
+        background-repeat:no-repeat;
+        background-size: 100%;
+        color: white;
+    }
+    .mainblock .btn-primary {
+        background: #845ac7;
+        border-color: #845ac7
+    }
+    .mainblock .btn-primary:hover {
+        background: #7646c1
+    }
+    .mainblock p {
+        color: black;
+        font-family: consolas;
+        font-size: 2vw;
+        max-width: 75%;
+        margin: 1em auto 2em
+    }
+    .navbar+.mainblock {
+        margin-top: -20px
+    }
+    .mainblock .lang-logo {
+        display: block;
+        overflow: hidden;
+        background-color: transparent;
+        background-size: 100%
+        margin: auto;
+    }
+    .mainblock .lang-logo img {
+        max-width: 100%
+    }
+
+    input[id=search_box] {
+        border-radius: 2%
+        max-width:100px;
+        border-color: black;
+        color: black;
+        padding-left: 40px;
+    }
+
+    .class {
+    counter-reset: rowNumber;
+    width: 100%
+    }
+
+    .class tr {
+        counter-increment: rowNumber;
+    }
+
+    .class tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.1em;
+    }
+
+    tr.tabledata:hover {
+        background-color: lightblue;
+        border-left:10px solid black;
+        border-right:10px solid black;
+        cursor: pointer;
+        text-align: center;
+        font-weight: bold;
+        transition: background-color 1s;
+        transition-timing-function: linear;
+    }
+
+      tr.tableheader{
+        border: 3px solid black;
+      }
+
+      tr.tabledata{
+        border-left:2px solid black;
+        border-right:2px solid black;
+      }
+
+#someelem
+    {
+    cursor: pointer;
+    }
+
+.tooltip
+    {
+    display: block;
+    position: absolute;
+    background-color: rgb(130, 150, 200);
+    padding: 5px;
+    }
