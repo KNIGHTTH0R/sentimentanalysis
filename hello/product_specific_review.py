@@ -51,14 +51,16 @@ def SearchProduct(product_name):
 	image_link = data.xpath('//img[@class="s-access-image cfMarker"]/@src')
 	product_image_link = image_link[:20]
 	price_value = data.xpath('//span[@class="a-size-base a-color-price s-price a-text-bold"]/text()') 
-	price_value_list = price_value[:20] 
+	price_value_list = price_value[:20]
+	product_asin = data.xpath('//li[@class="s-result-item  celwidget "]/@data-asin')
+	product_asin_list = product_asin[:20]
 
 
 
 	product = data.find("a")
 	string = 'a[@class="a-link-normal s-access-detail-page  a-text-normal"]/title'
 	article_list = data.findall(string)
-	return product_name_list,product_image_link,price_value_list
+	return product_name_list,product_image_link,price_value_list,product_asin_list
 	#print article_list
 '''
 	for i in range(10):

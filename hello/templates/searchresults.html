@@ -12,19 +12,19 @@
         <th style="vertical-align:middle;text-align: center;">Preview</th>
         <th style="vertical-align:middle;text-align: center;">Prouct Name</th>
         <th style="vertical-align:middle;text-align: center;">Price</th>
-        <th hidden="hidden">LOLOL</th>
+        <th hidden="hidden">Prod_ASIN</th>
     </tr>
     </thead>
     
     <tbody>
     
-	    {%for item,img,price in product_data %}
+	    {%for item,img,price,asin in product_data %}
           <tr class="tabledata" >
             <td style="vertical-align:middle;">{{forloop.counter}}</td>
             <td style="vertical-align:middle;text-align: center;"><img src={{ img }} alt="error" width="100vw"></td>
   	        <td style="vertical-align:middle;font-size: 1.2em;text-align: center;">{{item}}</td>
             <td style="vertical-align:middle;font-size: 1.2em;text-align: center;">&#8377;{{price}}</td>
-            <td hidden="hidden" class="product_asin">lol</td>
+            <td hidden="hidden" class="product_asin">{{asin}}</td>
   	      </tr>
 	    {% endfor %}
       
