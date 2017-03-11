@@ -17,5 +17,6 @@ urlpatterns = [
 	url(r'^searchresults', hello.views.searchresults, name='searchresults'),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^search_product', hello.views.search_product)
+    url(r'^search_product', hello.views.search_product),
+    url(r'^fetch_reviews', hello.views.fetch_reviews),
 ]

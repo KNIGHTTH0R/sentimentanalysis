@@ -12,7 +12,42 @@ Hey you !! Whatcha lookin' at ?
   <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+  function fetch_reviews(asin)
+  {
+      $.ajax({
+
+        type:"POST",//or POST
+        url:'/search_product/',
+        //can send multipledata like {data1:var1,data2:var2,data3:var3
+        //can use dataType:'text/html' or 'json' if response type expected 
+      
+     })
+}
   
+
+  $('.check_review').click(function(){
+
+    $.ajax
+    ({ 
+        url: 'sorry.html',
+        data: {"bookID": book_id},
+        type: 'post',
+        success: function(result)
+        {
+            $('.modal-box').text(result).fadeIn(700, function() 
+            {
+                setTimeout(function() 
+                {
+                    $('.modal-box').fadeOut();
+                }, 2000);
+            });
+        }
+    });
+  });    
+      
+  </script>
+
   <link rel="icon" href="{{ STATIC_URL }}favicon.png" type="image/png"/>
   <style type="text/css">
     .mainblock {

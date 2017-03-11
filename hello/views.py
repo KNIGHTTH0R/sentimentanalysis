@@ -8,16 +8,16 @@ from .search_button import NameForm
 import product_specific_review as psr
 from lxml import html
 import requests
-
-
-import requests
+import classifier
+import pickle
+import os
 
 from .models import Greeting
 
 # Create your views here.
 def index(request):
     #return HttpResponse('Hello from Python!')
-    return render(request, 'index.html')
+    return render(request, 'index.html',context_instance=RequestContext(request))
 	
 def abstract(request):
     return render(request, 'abstract.html')
@@ -54,7 +54,7 @@ def search_product(request):
         product_data = zip(prod_names,prod_images,prod_price,prod_asin)
 
         #return render_to_response('searchresults.html', {'prod_names':prod_names,'prod_images':prod_images})
-        return render_to_response('searchresults.html', {'product_data':product_data})
+        return render_to_response('searchresults.html', {'product_data':product_data},context_instance=RequestContext(request))
         #return HttpResponse(newstring)
         # check whether it's valid:
         '''
@@ -64,6 +64,20 @@ def search_product(request):
             return render(request, 'random.html', {'name': form.cleaned_data})
         '''
     # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+        return render(request, 'sorry.html', {'form': form})
+
+def fetch_reviews(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        product_asin = request.POST.get('product_asin')
+        prod_name,prod_reviews = psr.FetchReviews(product_asin)
+        prod_emotions = classifier.ClassifyReviews(prod_reviews)
+        prod_review_emotion = zip(prod_reviews,prod_emotions)
+        #return HttpResponse(prod_emotions)
+        return render_to_response('productreviews.html',{'prod_name':prod_name,'prod_review_emotion':prod_review_emotion})
     else:
         form = NameForm()
         return render(request, 'sorry.html', {'form': form})

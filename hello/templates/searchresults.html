@@ -12,22 +12,25 @@
         <th style="vertical-align:middle;text-align: center;">Preview</th>
         <th style="vertical-align:middle;text-align: center;">Prouct Name</th>
         <th style="vertical-align:middle;text-align: center;">Price</th>
-        <th hidden="hidden">Prod_ASIN</th>
     </tr>
     </thead>
     
     <tbody>
     
 	    {%for item,img,price,asin in product_data %}
-          <tr class="tabledata" >
+          <tr class="tabledata" onClick="fetch_reviews('{{asin}}');">
             <td style="vertical-align:middle;">{{forloop.counter}}</td>
             <td style="vertical-align:middle;text-align: center;"><img src={{ img }} alt="error" width="100vw"></td>
   	        <td style="vertical-align:middle;font-size: 1.2em;text-align: center;">{{item}}</td>
             <td style="vertical-align:middle;font-size: 1.2em;text-align: center;">&#8377;{{price}}</td>
-            <td hidden="hidden" class="product_asin">{{asin}}</td>
+            <td style="vertical-align:middle;font-size: 1.2em;text-align: center;">
+              <form class="" action="fetch_reviews" method="POST">{% csrf_token %}
+                <input type="hidden" name="product_asin" value="{{asin}}">
+                <input type="submit" class="btn btn-default btn-sm" value="Reviews">
+              </form>
   	      </tr>
 	    {% endfor %}
-      
+
     </tbody>
   </table>
   </div>

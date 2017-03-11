@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+<h3>{{prod_name}}</h3>
+<ul>
+{% for review,emotion in prod_review_emotion %}
+<li>{{emotion}}&nbsp;&nbsp;&nbsp;&nbsp;{{review}}</li>
+{% endfor%}
+</div>
+{% endblock %}
