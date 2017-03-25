@@ -16,31 +16,22 @@ def SearchProduct(product_name):
 
 	# ________________  page parsing  ________________
 
-
+	number = 10 # change to increase the number of scraped products
 	#      extract the top 10 products
-	
-	product_id_list = []
-	product_name_list = []
 
-	for i in range(10):
-		product_id = '//li[@id="result_'+str(i)+'"]/@data-asin'  
-		#print product_id
-		p_id = data.xpath(product_id)
-		product_id_list.append(str(p_id))
-		product_name = '//li[@id="result_'+str(i)+'"]/a[@class="a-link-normal s-access-detail-page  a-text-normal"]/@title/text()'
-		#print product_name
-		p_name = data.xpath(product_name)
-		product_name_list.append(p_name)
-	names = data.xpath('//h2[@class="a-size-base a-color-null s-inline  s-access-title  color-variation-title-replacement a-text-normal"]/text()')
-	product_name_list = names[:20]
 	product_name = data.xpath('//a[@class="a-link-normal s-access-detail-page  a-text-normal"]/h2/text()')
-	product_name_list = product_name[:20]
+	product_name_list = product_name[:number]
+
 	image_link = data.xpath('//img[@class="s-access-image cfMarker"]/@src')
-	product_image_link = image_link[:20]
+	product_image_link = image_link[:number]
+
 	price_value = data.xpath('//span[@class="a-size-base a-color-price s-price a-text-bold"]/text()') 
-	price_value_list = price_value[:20]
+	price_value_list = price_value[:number]
+
 	product_asin = data.xpath('//li[@class="s-result-item  celwidget "]/@data-asin')
-	product_asin_list = product_asin[:20]
+	if(len(product_asin) == 0):
+		product_asin = data.xpath('//li[@class="s-result-item celwidget "]/@data-asin')
+	product_asin_list = product_asin[:number]
 
 	product = data.find("a")
 	string = 'a[@class="a-link-normal s-access-detail-page  a-text-normal"]/title'
