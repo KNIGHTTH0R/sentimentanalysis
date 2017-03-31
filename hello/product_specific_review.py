@@ -19,7 +19,7 @@ def SearchProduct(product_name):
 	number = 10 # change to increase the number of scraped products
 	#      extract the top 10 products
 
-	product_name = data.xpath('//a[@class="a-link-normal s-access-detail-page  a-text-normal"]/h2/text()')
+	product_name = data.xpath('//a[@class="a-link-normal s-access-detail-page  s-color-twister-title-link a-text-normal"]/h2/text()')
 	product_name_list = product_name[:number]
 
 	image_link = data.xpath('//img[@class="s-access-image cfMarker"]/@src')
@@ -36,6 +36,7 @@ def SearchProduct(product_name):
 	product = data.find("a")
 	string = 'a[@class="a-link-normal s-access-detail-page  a-text-normal"]/title'
 	article_list = data.findall(string)
+	#print product_name_list,product_image_link,price_value_list,product_asin_list
 	return product_name_list,product_image_link,price_value_list,product_asin_list
 	#print article_list
 
@@ -47,4 +48,5 @@ def FetchReviews(prod_asin):
 	data = html.fromstring(page.content)
 	reviews = data.xpath('//a[@class="a-size-base a-link-normal review-title a-color-base a-text-bold"]/text()')
 	titles = data.xpath('//h1[@class="a-size-large a-text-ellipsis"]/a[@class="a-link-normal"]/text()')
-	return titles,reviews
+	image = data.xpath('//div[@class="a-text-center a-spacing-top-micro a-fixed-left-grid-col product-image a-col-left"]/a[@class="a-link-normal"]/img/@data-a-hires')
+	return titles[0],reviews,image[0]

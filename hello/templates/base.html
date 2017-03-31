@@ -31,7 +31,7 @@ Hey you !! Whatcha lookin' at ?
     $.ajax
     ({ 
         url: 'sorry.html',
-        data: {"bookID": book_id},
+        data: {"prod_id": book_id},
         type: 'post',
         success: function(result)
         {
@@ -93,10 +93,6 @@ Hey you !! Whatcha lookin' at ?
         padding-left: 40px;
     }
 
-    .class {
-    counter-reset: rowNumber;
-    width: 100%
-    }
 
     .class tr {
         counter-increment: rowNumber;
@@ -127,18 +123,49 @@ Hey you !! Whatcha lookin' at ?
         border-left:2px solid black;
         border-right:2px solid black;
       }
-      #footer
-      {
+
+      #footer {
+        clear: both;
         position: relative;
-        bottom:0;
-        width: 100%;
+        z-index: 10;
+        height: 3em;
+        margin-top: -3em;
       }
 
+      ul.reviewList {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      li.reviews {
+        font: 200 1.5em Helvetica, Verdana, sans-serif;
+        border-bottom: 1px solid #ccc;
+      }
+
+      li.reviews:last-child {
+        border: none;
+      }
+
+      li.reviews span {
+        text-decoration: none;
+        color: #000;
+        -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+        -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+        -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+        -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+        transition: font-size 0.3s ease, background-color 0.3s ease;
+        display: block;
+      }
+      li.reviews span:hover {
+        font-size: 20px;
+        background: #f6f6f6;
+      }
+      
   </style>
   
 </head>
-<body min-height=100%>
-
+<body>
 <nav class="navbar navbar-default navbar-static-top navbar-inverse">
   <div class="container">
     <ul class="nav navbar-nav">
@@ -153,7 +180,6 @@ Hey you !! Whatcha lookin' at ?
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ STATIC_URL }}scope.docx" download>Scope of Project</a></li>
             <li><a href="{{ STATIC_URL }}literaturesurvey.docx" download>Literaturesurvey</a></li>
-            
           </ul>
       </li>
     </ul>

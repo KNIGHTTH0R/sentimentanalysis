@@ -73,11 +73,11 @@ def fetch_reviews(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         product_asin = request.POST.get('product_asin')
-        prod_name,prod_reviews = psr.FetchReviews(product_asin)
+        prod_name,prod_reviews,prod_image = psr.FetchReviews(product_asin)
         prod_emotions = classifier.ClassifyReviews(prod_reviews)
         prod_review_emotion = zip(prod_reviews,prod_emotions)
         #return HttpResponse(prod_emotions)
-        return render_to_response('productreviews.html',{'prod_name':prod_name,'prod_review_emotion':prod_review_emotion})
+        return render_to_response('productreviews.html',{'prod_name':prod_name,'prod_review_emotion':prod_review_emotion,'prod_image':prod_image})
     else:
         form = NameForm()
         return render(request, 'sorry.html', {'form': form})
