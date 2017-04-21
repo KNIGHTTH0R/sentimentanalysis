@@ -3,12 +3,13 @@
 
 {% block content %}
 <div class="container">
+<img src="{{prod_image}}">
 <h3>{{prod_name}}</h3>
 <ul class="reviewList">
 {% for review,emotion in prod_review_emotion %}
 <li class="reviews"><span>{{emotion}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{review}}</span></li>
 {% endfor%}
 </ul>
-<img src="{{prod_image}}">
+
 </div>
 {% endblock %}

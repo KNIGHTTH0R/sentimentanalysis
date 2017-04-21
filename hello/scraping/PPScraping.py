@@ -1,5 +1,7 @@
 from lxml import html
 import requests
+from threading import Thread
+import re
 
 def test(string):
 	return ("aditya"+string)
@@ -16,7 +18,7 @@ def SearchProduct(product_name):
 
 	# ________________  page parsing  ________________
 
-	number = 10 # change to increase the number of scraped products
+	number = 1 # change to increase the number of scraped products
 	#      extract the top 10 products
 
 	product_name = data.xpath('//a[@class="a-link-normal s-access-detail-page  s-color-twister-title-link a-text-normal"]/h2/text()')
@@ -39,22 +41,11 @@ def SearchProduct(product_name):
 	#print product_name_list,product_image_link,price_value_list,product_asin_list
 	product_features_list = getFeatures(product_asin_list)
 	return product_name_list,product_image_link,price_value_list,product_asin_list,product_features_list
+	
 	#print article_list
 
 	
-def FetchReviews(prod_asin):
-	product_review_link = "http://www.amazon.in/product-reviews/"+str(prod_asin)+"/"
-	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
-	page = requests.get(product_review_link,headers=headers)
-	data = html.fromstring(page.content)
-	reviews = data.xpath('//a[@class="a-size-base a-link-normal review-title a-color-base a-text-bold"]/text()')
-	titles = data.xpath('//h1[@class="a-size-large a-text-ellipsis"]/a[@class="a-link-normal"]/text()')
-	image = data.xpath('//div[@class="a-text-center a-spacing-top-micro a-fixed-left-grid-col product-image a-col-left"]/a[@class="a-link-normal"]/img/@data-a-hires')
-	return titles[0],reviews,image[0]
-
-
 def FetchFeatures(prod_asin):
-	import re
 	product_review_link = "http://www.amazon.in/dp/"+str(prod_asin)+"/"
 	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
 	page = requests.get(product_review_link,headers=headers)
@@ -68,6 +59,20 @@ def FetchFeatures(prod_asin):
 	return features
 
 def getFeatures(product_asin_list):
+	#p=[0,0,0,0,0,0,0,0,0,0]
+	p=[0]
+	i=0
+	#print names
+	'''
+	for prod in asin:
+			t = threading.Thread(target=FetchFeatures, args = (prod,))
+			#t.daemon = True
+			p[i] = t.start()
+			#print p[i]
+			#i=i+1
+			#print t
+	print p[0]
+	'''
 	import Queue
 	from threading import Thread
 
@@ -86,4 +91,10 @@ def getFeatures(product_asin_list):
 	while not que.empty():
 	    results_list.append(que.get())
 	return results_list
-#print getFeatures()
+
+prod_names,prod_images,prod_price,prod_asin,prod_features = SearchProduct('mobile phone')
+        #return HttpResponse(prod_names)
+        #sample = ['lol','ertgf','fghytr','ghgfh','asd','asd']
+product_data = zip(prod_names,prod_images,prod_price,prod_asin,prod_features)
+for n,i,pr,asin,fe in product_data:
+	print n,fe
