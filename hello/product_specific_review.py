@@ -37,7 +37,12 @@ def SearchProduct(product_name):
 	string = 'a[@class="a-link-normal s-access-detail-page  a-text-normal"]/title'
 	article_list = data.findall(string)
 	#print product_name_list,product_image_link,price_value_list,product_asin_list
-	product_features_list = getFeatures(product_asin_list)
+	product_features = getFeatures(product_asin_list)
+	product_features_list=[]
+	for asin in product_asin_list:
+		for pf,pa in product_features:
+			if(asin == pa):
+				product_features_list.append(pf)
 	return product_name_list,product_image_link,price_value_list,product_asin_list,product_features_list
 	#print article_list
 
@@ -65,7 +70,7 @@ def FetchFeatures(prod_asin):
 	for feature in features_list:
 		features.append(re.sub('\s+',' ',feature).encode('utf-8'))
 	#print '\n'
-	return features
+	return features,prod_asin
 
 def getFeatures(product_asin_list):
 	import Queue

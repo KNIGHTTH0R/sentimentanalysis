@@ -67,6 +67,14 @@ def search_product(request):
     else:
         form = NameForm()
         return render(request, 'sorry.html', {'form': form})
+        
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 
 def fetch_reviews(request):
     # if this is a POST request we need to process the form data
