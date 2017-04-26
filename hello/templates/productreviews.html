@@ -2,18 +2,18 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="container">
+<div class="container" style="padding:0%  10% 10% 10%;">
 <table>
 	<tr>
 		<td>
-			<img src="{{prod_image}}" style="width: 16vw;">
+			<img class="logo" src="{{prod_image}}">
 		</td>
 		<td>
 			<h3>{{prod_name}}</h3>
 		</td>
 	</tr>
 </table>
-<h4>Reviews</h4>
+<h4><strong>Reviews</strong></h4>
 <table>
 {% for review,emotion in prod_review_emotion %}
 	<tr>
