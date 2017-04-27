@@ -33,6 +33,7 @@
             </td>
             <td>
               <form class="" action="fetch_reviews" method="POST">{% csrf_token %}
+                <input type="hidden" name="product_features" value="{{features}}">
                 <input type="hidden" name="product_asin" value="{{asin}}">
                 <input type="submit" class="btn btn-default btn-sm" value="Reviews">
               </form>

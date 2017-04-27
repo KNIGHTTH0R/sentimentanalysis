@@ -13,7 +13,7 @@ import pickle
 import os
 
 from .models import Greeting
-
+features = []
 # Create your views here.
 def index(request):
     #return HttpResponse('Hello from Python!')
@@ -51,7 +51,14 @@ def search_product(request):
         prod_names,prod_images,prod_price,prod_asin,prod_features = psr.SearchProduct(product)
         #return HttpResponse(prod_names)
         #sample = ['lol','ertgf','fghytr','ghgfh','asd','asd']
-        product_data = zip(prod_names,prod_images,prod_price,prod_asin,prod_features)
+        global features
+        features = prod_features
+        product_features_list=[]
+        for asin in prod_asin:
+            for pf,pa in prod_features:
+                if(asin == pa):
+                    product_features_list.append(pf)
+        product_data = zip(prod_names,prod_images,prod_price,prod_asin,product_features_list)
 
         #return render_to_response('searchresults.html', {'prod_names':prod_names,'prod_images':prod_images})
         return render_to_response('searchresults.html', {'product_data':product_data},context_instance=RequestContext(request))
@@ -74,18 +81,25 @@ def get_client_ip(request):
         ip = x_forwarded_for.split(',')[0]
     else:
         ip = request.META.get('REMOTE_ADDR')
-    return ip
+    print ip
+    return render_to_response('random.html', {'ip',ip},context_instance=RequestContext(request))
 
 def fetch_reviews(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         product_asin = request.POST.get('product_asin')
+        #product_features = request.POST.get('product_features')
+        global features
+        
+        for pf,pa in features:
+            if(product_asin == pa):
+                product_features = pf
         prod_name,prod_reviews,prod_image = psr.FetchReviews(product_asin)
         prod_emotions = classifier.ClassifyReviews(prod_reviews)
         prod_review_emotion = zip(prod_reviews,prod_emotions)
         #return HttpResponse(prod_emotions)
-        return render_to_response('productreviews.html',{'prod_name':prod_name,'prod_review_emotion':prod_review_emotion,'prod_image':prod_image})
+        return render_to_response('productreviews.html',{'prod_name':prod_name,'prod_review_emotion':prod_review_emotion,'prod_image':prod_image,'prod_features':product_features},context_instance=RequestContext(request))
     else:
         form = NameForm()
         return render(request, 'sorry.html', {'form': form})

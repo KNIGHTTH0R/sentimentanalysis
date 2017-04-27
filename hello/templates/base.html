@@ -153,22 +153,44 @@ Hey you !! Whatcha lookin' at ?
         transition: font-size 0.3s ease, background-color 0.3s ease;
         display: block;
       }
-      td.data{
+      td.emotion_val{
         text-decoration: none;
         color: #000;
+        font-size: 20px;
         transition: font-size 0.3s ease, background-color 0.3s ease;
       }
-      td.data:hover {
+      td.emotion_data{
+        text-decoration: none;
+        color: #000;
         font-size: 20px;
+        transition: font-size 0.3s ease, background-color 0.3s ease;
+      }
+      tr:hover td.emotion_val{
+        font-size: 25px;
+        font-weight: bold;
         background: #f6f6f6;
       }
+      tr.reviews:nth-child(even) {background: #CCC; }
+      tr.reviews:nth-child(odd) {background: #FFF}
       footer
       {
         position:fixed;bottom:10px;left:0;right:0;height:30px;
       }
-      img.logo:hover{
+      table.description:hover img.logo{
          width: 16vw;
       }
+      table.description:hover div.features_list{
+        display: block;
+      }
+      table.description:hover span.prod_name{
+         font-weight: bold;
+         font-family: Helvetica;
+         font-size: 40px;
+      }
+      table.description:hover td.emotion_val{
+         width: 20%;
+      }
+      
       
   </style>
   

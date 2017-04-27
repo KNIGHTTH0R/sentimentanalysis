@@ -38,13 +38,7 @@ def SearchProduct(product_name):
 	article_list = data.findall(string)
 	#print product_name_list,product_image_link,price_value_list,product_asin_list
 	product_features = getFeatures(product_asin_list)
-	product_features_list=[]
-	for asin in product_asin_list:
-		for pf,pa in product_features:
-			if(asin == pa):
-				product_features_list.append(pf)
-	return product_name_list,product_image_link,price_value_list,product_asin_list,product_features_list
-	#print article_list
+	return product_name_list,product_image_link,price_value_list,product_asin_list,product_features
 
 	
 def FetchReviews(prod_asin):

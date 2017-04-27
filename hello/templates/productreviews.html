@@ -3,23 +3,29 @@
 
 {% block content %}
 <div class="container" style="padding:0%  10% 10% 10%;">
-<table>
+<table class="description">
 	<tr>
-		<td>
+		<td colspan="2">
 			<img class="logo" src="{{prod_image}}">
 		</td>
 		<td>
-			<h3>{{prod_name}}</h3>
+			<span class="prod_name" style="font-family: Times New Roman;font-size: 20px;">{{prod_name}}</span>
 		</td>
+		
 	</tr>
+	
 </table>
+
 <h4><strong>Reviews</strong></h4>
-<table>
+<table >
 {% for review,emotion in prod_review_emotion %}
-	<tr>
-	<td class="data" style="width: 10%;">{{emotion}}</td><td class="data" style="width: 50%;">{{review}}</td>
+	<tr class="reviews" style="height: 45px;">
+	<td class="emotion_val" style="width: 15%;font-family: Helvetica;">{{emotion}}</td><td class="emotion_data" style="width: 50%; font-family: Helvetica;">{{review}}</td>
 	</tr>
 {% endfor%}
 </table>
+<form class="" action="get_client_ip" method="POST">{% csrf_token %}
+	<input type="submit" value="lol">
+</form>
 </div>
 {% endblock %}

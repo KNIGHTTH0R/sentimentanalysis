@@ -19,4 +19,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^search_product', hello.views.search_product),
     url(r'^fetch_reviews', hello.views.fetch_reviews),
+    url(r'^get_client_ip', hello.views.get_client_ip),
 ]
