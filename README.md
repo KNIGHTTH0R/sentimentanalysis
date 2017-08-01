@@ -1,44 +1,6 @@
-# python-getting-started
+# sentiment_analysis
 
-A barebones Python app, which can easily be deployed to Heroku.
+This project mainly aims at analyzing the sentiment of customer reviews on various e-commerce websites. This will help the user to get an idea about the product that they are buying.
+This can also be utilized by the e-commerce giants to get feedback on the product that they are selling. This allows them to gain an understanding of attitudes, opinions & emotions expressed within an online mention. We will use a bag of words model and Naïve Bayes model to perform sentiment analysis by classifying the reviews for effective product recommendation. This will give the user an insight about how the other buyers feel about the product.
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
-
-## Running Locally
-
-Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
-
-```sh
-$ git clone git@github.com:heroku/python-getting-started.git
-$ cd python-getting-started
-
-$ pip install -r requirements.txt
-
-$ createdb python_getting_started
-
-$ python manage.py migrate
-$ python manage.py collectstatic
-
-$ heroku local
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-
-$ heroku run python manage.py migrate
-$ heroku open
-```
-or
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Python on Heroku, see these Dev Center articles:
-
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+The website is live at : http://analyzesentiment.herokuapp.com
